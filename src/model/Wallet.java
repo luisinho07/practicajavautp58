@@ -77,4 +77,14 @@ public class Wallet {
         return true;
     }
 
+    public String compararCuenta(Wallet otraWallet){
+        if (saldo == otraWallet.getSaldo()) {
+            return "Las cuentas tenen el mismo saldo";
+        }
+        if (saldo > otraWallet.getSaldo()){
+            return "La primera cuenta es mayor";
+        }
+        return "La segunda cuenta es mayor";
+    }
+
 }
