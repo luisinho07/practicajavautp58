@@ -68,7 +68,7 @@ public class Wallet {
     }
 
     public boolean verificarMeta(){
-        if (meta == 0 || meta > saldo) {
+        if (meta == 0 || saldo > meta) {
             return false;
         }
         return true;
