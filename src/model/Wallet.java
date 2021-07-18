@@ -4,12 +4,14 @@ public class Wallet {
     public static final int CAPACIDAD_MAXIMA = 1000000; // creación de constante
     private int saldo;
     private boolean tieneLimite;
+    private int meta;
     
     // creación constructor con palabra: ctor
     public Wallet() {
         super();
         saldo = 0;
         tieneLimite = true;
+        meta = 0;
     }
 
     public int getSaldo(){
@@ -51,6 +53,25 @@ public class Wallet {
             return "Se ha quitado el límite de tu billetera, se descuenta 10000 de tu saldo, tu nuevo saldo es: "+ saldo;
         }
         return "No se puede romper el límite, no tiene saldo suficiente";
+    }
+
+    public boolean establecerMeta(int value){
+        if (value == 0) {
+            meta = value;
+            return true;    
+        }
+        if (value < 0 || value <= saldo || (value > CAPACIDAD_MAXIMA && tieneLimite)) {
+            return false;
+        }
+        meta = value;
+        return true;
+    }
+
+    public boolean verificarMeta(){
+        if (meta == 0 || meta > saldo) {
+            return false;
+        }
+        return true;
     }
 
 }
