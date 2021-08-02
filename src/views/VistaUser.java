@@ -3,7 +3,7 @@ package views;
 import model.Client;
 
 public class VistaUser {
-    public static void main(String[] args) {
+    public static void main666(String[] args) {
         Client customer1 = new Client("Marco");
         Client customer2 = new Client("Luis");
         String response = customer1.getNombre();
