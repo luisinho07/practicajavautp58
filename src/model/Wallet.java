@@ -1,6 +1,9 @@
 package model;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class Wallet {
     public static final int CAPACIDAD_MAXIMA = 1000000; // creación de constante
@@ -107,6 +110,20 @@ public class Wallet {
     public void displayMovimientos(){
         for (Transaction movimiento : movimientos) {
             System.out.println(movimiento);
+        }
+    }
+
+    public void generarRegistro(){
+
+        try {
+            OutputStream ous = new FileOutputStream ("./data/transactions.properties");
+            Properties prop = new Properties();
+            for (int i = 0; i < movimientos.size(); i++) {
+                prop.setProperty("Transaccion"+i, movimientos.toString());
+            }
+
+        } catch (Exception e) {
+            //TODO: handle exception
         }
     }
 

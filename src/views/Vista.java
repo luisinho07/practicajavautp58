@@ -4,7 +4,7 @@ import model.Wallet;
 
 public class Vista {
 
-    public static void main(String[] args) {
+    public static void main111(String[] args) {
         Wallet billetera = new Wallet();
         Wallet wallet2 = new Wallet();
         try {
