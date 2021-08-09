@@ -3,14 +3,18 @@ package model;
 public class Client extends User {
     private Wallet wallet;
 
-    public Client(String nNombre) {
+    public Client(String pNombre) {
         super();
         wallet = new Wallet();
-        setNombre(nNombre);
+        setNombre(pNombre);
     }
 
     public Wallet getWallet() {
         return wallet;
+    }
+
+    public String toString() {
+        return "Nombre: " + getNombre() + "     Saldo: " + wallet.getSaldo();
     }
     
 }
