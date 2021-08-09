@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Client;
@@ -15,6 +17,30 @@ public class Controlador {
         super();
         clientes = new ArrayList<>();
         servicioDB = new JavaMySQL();
+        checkConnection();
+    }
+
+    public void checkConnection() {
+        try {
+            if (servicioDB.getConnect().isValid(60)) {
+                fillUsersData(servicioDB.getUsersDB());
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void fillUsersData(ResultSet rs) {
+        try {
+            while (rs.next()) {
+                Client cliente = new Client(rs.getString("name"));
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     
     public ArrayList<Client> getClientes() {
@@ -33,6 +59,7 @@ public class Controlador {
     public void addClient (String nombre) {
         Client cliente = new Client(nombre);
         clientes.add(cliente);
+        servicioDB.insertUser(nombre);
     }
 
     public String listarClientes() {
