@@ -7,6 +7,8 @@ import java.util.Properties;
 
 public class Wallet {
     public static final int CAPACIDAD_MAXIMA = 1000000; // creación de constante
+
+    private int id;
     private int saldo;
     private boolean tieneLimite;
     private int meta;
@@ -28,12 +30,24 @@ public class Wallet {
         movimientos = new ArrayList<>();
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int getSaldo(){
         return saldo;
     }
 
     public boolean getTieneLimite(){
         return tieneLimite;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
     public void setTieneLimite(boolean newTieneLimite){

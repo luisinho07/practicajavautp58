@@ -41,6 +41,10 @@ public class Interfaz extends JFrame {
         panelClientes.updateList(controlador.getClientsData());
     }
 
+    public void getWalletUser(int id) {
+        controlador.getWalletUser(id);
+    }
+
     public static void main(String[] args) {
         Interfaz vistaPrincipal = new Interfaz();
         vistaPrincipal.setVisible(true);
